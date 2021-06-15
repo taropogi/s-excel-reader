@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Upload;
 use Illuminate\Http\Request;
 
 class CustomerSkuController extends Controller
@@ -13,11 +14,13 @@ class CustomerSkuController extends Controller
      */
     public function index()
     {
+
         return view('customer_sku.index');
     }
 
     public function all_data()
     {
+
         return view('customer_sku.all_data');
     }
 

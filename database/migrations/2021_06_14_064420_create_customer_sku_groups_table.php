@@ -15,6 +15,11 @@ class CreateCustomerSkuGroupsTable extends Migration
     {
         Schema::create('customer_sku_groups', function (Blueprint $table) {
             $table->id();
+            $table->string('customer_group')->nullable();
+            $table->string('account_number')->nullable();
+            $table->string('account_name')->nullable();
+            $table->text('full_row_obj')->nullable();
+
             $table->timestamps();
         });
     }
