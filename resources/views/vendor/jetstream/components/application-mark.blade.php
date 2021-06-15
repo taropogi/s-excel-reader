@@ -1,0 +1,1 @@
+<img class="d-block mx-auto mb-4 mt-3" src="{{ asset('images/times-logo.png') }}" alt="" width="100" height="57">
