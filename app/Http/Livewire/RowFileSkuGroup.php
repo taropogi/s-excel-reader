@@ -50,6 +50,17 @@ class RowFileSkuGroup extends Component
             */
     }
 
+    public function download_file()
+    {
+
+
+        $filePath = storage_path($this->file->full_storage_path);
+        $headers = ['Content-Type: ' . $this->file->mime_type];
+        $fileName = $this->file->file_name . '.' . $this->file->file_type;
+
+        return response()->download($filePath, $fileName, $headers);
+    }
+
     public function render()
     {
         return view('livewire.row-file-sku-group');

@@ -14,7 +14,7 @@
 
         <div wire:loading.remove class="btn-group btn-group-sm" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-primary" wire:click="import">Import</button>
-            <button type="button" class="btn btn-success">Download</button>
+            <button type="button" class="btn btn-success" wire:click="download_file">Download</button>
         </div>
     </td>
 </tr>
