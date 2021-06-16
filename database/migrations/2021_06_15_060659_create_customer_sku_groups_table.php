@@ -15,6 +15,7 @@ class CreateCustomerSkuGroupsTable extends Migration
     {
         Schema::create('customer_sku_groups', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('upload_id')->constrained()->onDelete('cascade');
             $table->string('customer_group')->nullable();
             $table->string('account_number')->nullable();
             $table->string('account_name')->nullable();

@@ -15,6 +15,7 @@ class CreateCustomerItemsTable extends Migration
     {
         Schema::create('customer_items', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('upload_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

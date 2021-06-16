@@ -15,12 +15,18 @@ class CustomerSkuGroupImport implements WithMultipleSheets, SkipsUnknownSheets
      * @return \Illuminate\Database\Eloquent\Model|null
      */
 
+    public $document;
+    public function __construct($document)
+    {
+        $this->document = $document;
+    }
+
     public function sheets(): array
     {
         $arr = [];
 
         for ($x = 0; $x <= 50; $x++) {
-            $arr[$x] = new SheetImportSkuGroup();
+            $arr[$x] = new SheetImportSkuGroup($this->document);
         }
 
 

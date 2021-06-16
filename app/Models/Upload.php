@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Upload extends Model
 {
@@ -14,6 +15,20 @@ class Upload extends Model
     protected $casts = [
         'date_modified' => 'datetime:Y-m-d',
     ];
+
+    public function import_duration()
+    {
+        if (is_null($this->import_start)) {
+            return '';
+        }
+        $startTime = Carbon::parse($this->import_start);
+        $endTime = Carbon::parse($this->import_end);
+
+        $totalDuration =  $startTime->diff($endTime)->format('%I:%S') . " mins";
+
+
+        return $totalDuration;
+    }
 
     public function size()
     {
