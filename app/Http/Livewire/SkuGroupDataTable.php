@@ -18,16 +18,20 @@ class SkuGroupDataTable extends LivewireDatatable
     public function columns()
     {
         return [
-            NumberColumn::name('id')
+            /*  NumberColumn::name('id')
                 ->label('ID')
                 ->sortBy('id'),
-
+*/
             Column::name('customer_group')
-                ->label('Name'),
+                ->label('Customer Group')
+                ->searchable(),
             Column::name('account_number')
-                ->label('Account #'),
+                ->label('Account #')
+                ->searchable(),
             Column::name('account_name')
-                ->label('Account Name'),
+                ->label('Account Name')
+                ->searchable(),
+            Column::delete(),
         ];
     }
 

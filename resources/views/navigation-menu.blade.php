@@ -19,7 +19,11 @@
                         {{ __('Logs') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('customer_sku') }}" :active="request()->routeIs('customer_sku','customer_sku.all_data')">
-                        {{ __('Customer SKU') }}
+                        {{ __('Customer SKU Group') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('customer_items') }}" :active="request()->routeIs('customer_items','customer_items.all_data')">
+                        {{ __('Customer Items') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -150,7 +154,7 @@
                 {{ __('Logs') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('customer_sku') }}" :active="request()->routeIs('customer_sku','customer_sku.all_data')">
-                {{ __('Customer SKU') }}
+                {{ __('Customer SKU Group') }}
             </x-jet-responsive-nav-link>
 
         </div>

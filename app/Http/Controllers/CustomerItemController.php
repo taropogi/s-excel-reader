@@ -13,7 +13,13 @@ class CustomerItemController extends Controller
      */
     public function index()
     {
-        //
+        return view('customer_item.index');
+    }
+
+    public function all_data()
+    {
+
+        return view('customer_item.all_data');
     }
 
     /**

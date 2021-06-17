@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\CustomerSkuController;
+use App\Http\Controllers\CustomerItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/logs', [LogController::cl
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/CustomerSKU', [CustomerSkuController::class, 'index'])->name('customer_sku');
 Route::middleware(['auth:sanctum', 'verified'])->get('/CustomerSKU/records', [CustomerSkuController::class, 'all_data'])->name('customer_sku.all_data');
+
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/CustomerItems', [CustomerItemController::class, 'index'])->name('customer_items');
+Route::middleware(['auth:sanctum', 'verified'])->get('/CustomerItems/records', [CustomerItemController::class, 'all_data'])->name('customer_items.all_data');
