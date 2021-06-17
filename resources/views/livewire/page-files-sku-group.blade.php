@@ -9,7 +9,7 @@
                 <th scope="col">Size</th>
                 <th scope="col">Import <br> Duration</th>
                 <th scope="col">Record <br> Count</th>
-                <th scope="col">Extracted <br> Count</th>
+                <th scope="col">Error <br> Count</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>

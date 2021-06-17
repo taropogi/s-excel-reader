@@ -4,24 +4,36 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-use App\Models\CustomerSkuGroup;
 use Illuminate\Support\Str;
-use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\NumberColumn;
-use Mediconesystems\LivewireDatatables\DateColumn;
-use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
+use Livewire\WithPagination;
 
-class SkuGroupDataTable extends LivewireDatatable
+use App\Models\CustomerSkuGroup;
+
+/*
+
+use Mediconesystems\LivewireDatatables\Column;
+use Mediconesystems\LivewireDatatables\DateColumn;
+use Mediconesystems\LivewireDatatables\NumberColumn;
+use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
+*/
+
+
+class SkuGroupDataTable extends Component
 {
+
+    use WithPagination;
+
+    /*
     public $model = CustomerSkuGroup::class;
 
+   
     public function columns()
     {
         return [
-            /*  NumberColumn::name('id')
+             NumberColumn::name('id')
                 ->label('ID')
                 ->sortBy('id'),
-*/
+ 
             Column::name('customer_group')
                 ->label('Customer Group')
                 ->searchable(),
@@ -34,11 +46,12 @@ class SkuGroupDataTable extends LivewireDatatable
             Column::delete(),
         ];
     }
+    */
 
-    /*
+
     public function render()
     {
-        return view('livewire.sku-group-data-table');
+        $data['sku_groups'] = CustomerSkuGroup::latest()->paginate(20);
+        return view('livewire.sku-group-data-table', $data);
     }
-    */
 }

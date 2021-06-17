@@ -55,7 +55,7 @@ class UploadFile extends Component
         ]);
 
 
-        $this->emit('CustomerSkuGroupSaved');
+        $this->emit('FileUploaded');
     }
 
 

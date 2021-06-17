@@ -13,8 +13,11 @@ class CreateLogsTable extends Migration
      */
     public function up()
     {
+        $this->down();
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
+            $table->text('description')->nullable();
+            $table->text('obj')->nullable();
             $table->timestamps();
         });
     }

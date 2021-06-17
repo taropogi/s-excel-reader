@@ -9,7 +9,8 @@ class PageFilesSkuGroup extends Component
 {
 
     protected $listeners = [
-        'CustomerSkuGroupSaved' => '$refresh'
+        'FileUploaded' => '$refresh',
+        'FileDeleted' => '$refresh'
     ];
 
 

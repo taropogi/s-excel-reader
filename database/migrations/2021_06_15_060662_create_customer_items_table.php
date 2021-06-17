@@ -13,9 +13,17 @@ class CreateCustomerItemsTable extends Migration
      */
     public function up()
     {
+        $this->down();
         Schema::create('customer_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('upload_id')->constrained()->onDelete('cascade');
+            $table->string('sheet_name')->nullable();
+            $table->integer('line_number')->nullable();
+            $table->string('commodity_code')->nullable();
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();
+            $table->string('uom')->nullable();
+            $table->string('oracle_code')->nullable();
             $table->timestamps();
         });
     }
