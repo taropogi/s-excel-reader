@@ -1,11 +1,13 @@
 <tr>
     <th scope="row">{{ $file->id }}</th>
     <td>{{ $file->file_name }}</td>
+    <td>{{ $file->created_at->diffForHumans() }}</td>
     <td>{{ $file->date_modified->diffForHumans() }}</td>
     <td>{{ $file->size() }}</td>
     <td>{{ $file->import_duration() }}</td>
     <td>{{ $file->record_count }}</td>
     <td>{{ $file->record_error_count }}</td>
+    <td>{{ $file->record_empty_cells }}</td>
     <td>
         <button wire:loading wire:target="import" class="btn btn-primary btn-sm" type="button" disabled>
             <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>

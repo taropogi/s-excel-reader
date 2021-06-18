@@ -22,6 +22,11 @@ class CustomerItemController extends Controller
         return view('customer_item.all_data');
     }
 
+    public function logs()
+    {
+        return view('customer_item.logs');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

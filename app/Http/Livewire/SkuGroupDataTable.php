@@ -38,19 +38,23 @@ class SkuGroupDataTable extends Component
     {
     }
 
+    public function updatedSearch()
+    {
+        $this->resetPage();
+    }
 
     public function render()
     {
-        if ($this->selected_file == 0) {
-            $data['sku_groups'] = CustomerSkuGroup::latest()
-                ->where('customer_group', 'like', '%' . $this->search . '%')
-                ->paginate(20);
-        } else {
-            $data['sku_groups'] = CustomerSkuGroup::latest()
-                ->where('upload_id', $this->selected_file)
-                ->where('customer_group', 'like', '%' . $this->search . '%')
-                ->paginate(20);
+
+        $data['sku_groups'] = CustomerSkuGroup::latest()
+            ->where('customer_group', 'like', '%' . $this->search . '%');
+
+
+        if (!$this->selected_file == 0) {
+            $data['sku_groups'] = $data['sku_groups']->where('upload_id', $this->selected_file);
         }
+
+        $data['sku_groups'] = $data['sku_groups']->paginate(20);
 
         return view('livewire.sku-group-data-table', $data);
     }

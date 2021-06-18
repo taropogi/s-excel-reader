@@ -16,6 +16,20 @@ class Upload extends Model
         'date_modified' => 'datetime:Y-m-d',
     ];
 
+    public function empty_cells()
+    {
+        return $this->hasMany(EmptyCellLog::class);
+    }
+
+    public function empty_cells_sku_group()
+    {
+        return $this->hasMany(EmptyCellLog::class)->where('category', 'sku_group');
+    }
+    public function empty_cells_customer_item()
+    {
+        return $this->hasMany(EmptyCellLog::class)->where('category', 'customer_item');
+    }
+
     public function import_duration()
     {
         if (is_null($this->import_start)) {

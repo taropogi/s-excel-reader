@@ -21,14 +21,15 @@ Route::get('/', function () {
 })->middleware('guest');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('customer_sku');
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/logs', [LogController::class, 'index'])->name('logs');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/CustomerSKU', [CustomerSkuController::class, 'index'])->name('customer_sku');
 Route::middleware(['auth:sanctum', 'verified'])->get('/CustomerSKU/records', [CustomerSkuController::class, 'all_data'])->name('customer_sku.all_data');
+Route::middleware(['auth:sanctum', 'verified'])->get('/CustomerSKU/logs', [CustomerSkuController::class, 'logs'])->name('customer_sku.logs');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/CustomerItems', [CustomerItemController::class, 'index'])->name('customer_items');
 Route::middleware(['auth:sanctum', 'verified'])->get('/CustomerItems/records', [CustomerItemController::class, 'all_data'])->name('customer_items.all_data');
+Route::middleware(['auth:sanctum', 'verified'])->get('/CustomerItems/logs', [CustomerItemController::class, 'logs'])->name('customer_items.logs');

@@ -24,6 +24,11 @@ class CustomerSkuController extends Controller
         return view('customer_sku.all_data');
     }
 
+    public function logs()
+    {
+        return view('customer_sku.logs');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

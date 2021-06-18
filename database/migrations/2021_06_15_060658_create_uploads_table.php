@@ -23,8 +23,9 @@ class CreateUploadsTable extends Migration
             $table->string('mime_type')->nullable();
             $table->string('full_storage_path')->nullable();
             $table->timestamp('date_modified')->nullable();
-            $table->bigInteger('record_count')->nullable();
-            $table->bigInteger('record_error_count')->nullable();
+            $table->integer('record_count')->nullable();
+            $table->integer('record_error_count')->nullable();
+            $table->integer('record_empty_cells')->nullable();
             $table->string('category')->nullable();
             $table->boolean('show')->default(true);
             $table->bigInteger('size')->nullable(); //in bytes

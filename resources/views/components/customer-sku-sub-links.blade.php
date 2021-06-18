@@ -7,5 +7,8 @@
         <x-jet-nav-link href="{{ route('customer_sku.all_data') }}" :active="request()->routeIs('customer_sku.all_data')">
             {{ __('All Data') }}
         </x-jet-nav-link>
+        <x-jet-nav-link href="{{ route('customer_sku.logs') }}" :active="request()->routeIs('customer_sku.logs')">
+            {{ __('Logs') }}
+        </x-jet-nav-link>
     </div>
 </div>

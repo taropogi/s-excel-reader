@@ -12,17 +12,11 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('logs') }}" :active="request()->routeIs('logs')">
-                        {{ __('Logs') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('customer_sku') }}" :active="request()->routeIs('customer_sku','customer_sku.all_data')">
+                    <x-jet-nav-link href="{{ route('customer_sku') }}" :active="request()->routeIs('customer_sku','customer_sku.all_data','customer_sku.logs')">
                         {{ __('Customer SKU Group') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('customer_items') }}" :active="request()->routeIs('customer_items','customer_items.all_data')">
+                    <x-jet-nav-link href="{{ route('customer_items') }}" :active="request()->routeIs('customer_items','customer_items.all_data','customer_items.logs')">
                         {{ __('Customer Items') }}
                     </x-jet-nav-link>
                 </div>
@@ -147,14 +141,12 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('logs') }}" :active="request()->routeIs('logs')">
-                {{ __('Logs') }}
-            </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('customer_sku') }}" :active="request()->routeIs('customer_sku','customer_sku.all_data')">
+            <x-jet-responsive-nav-link href="{{ route('customer_sku') }}" :active="request()->routeIs('customer_sku','customer_sku.all_data','customer_sku.logs')">
                 {{ __('Customer SKU Group') }}
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('customer_items') }}" :active="request()->routeIs('customer_items','customer_items.all_data','customer_items.logs')">
+                {{ __('Customer Items') }}
             </x-jet-responsive-nav-link>
 
         </div>
