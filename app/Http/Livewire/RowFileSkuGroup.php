@@ -12,6 +12,16 @@ class RowFileSkuGroup extends Component
 {
 
     public $file;
+    public $import_by_str;
+
+    public function mount()
+    {
+        if ($this->file->import_by_f) {
+            $this->import_by_str = $this->file->import_by_f->name;
+        } else {
+            $this->import_by_str = "";
+        }
+    }
 
     public function import()
     {
@@ -33,9 +43,13 @@ class RowFileSkuGroup extends Component
         $this->file->import_end = $import_end;
         $this->file->record_count = count($upload_rows);
         $this->file->import_by = auth()->user()->id;
+
+        $this->import_by_str = auth()->user()->name;
+
+
         $this->file->save();
 
-        $this->emit('FileImported');
+
 
         /*
         $file_contents = base64_decode($document->blob_file);

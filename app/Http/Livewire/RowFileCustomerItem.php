@@ -13,6 +13,17 @@ class RowFileCustomerItem extends Component
 {
     public $file;
 
+    public $import_by_str;
+
+    public function mount()
+    {
+        if ($this->file->import_by_f) {
+            $this->import_by_str = $this->file->import_by_f->name;
+        } else {
+            $this->import_by_str = "";
+        }
+    }
+
     public function import()
     {
 
@@ -31,9 +42,11 @@ class RowFileCustomerItem extends Component
         $this->file->import_end = $import_end;
         $this->file->record_count = count($upload_rows);
         $this->file->import_by = auth()->user()->id;
-        $this->file->save();
 
-        $this->emit('FileImported');
+        $this->import_by_str = auth()->user()->name;
+
+
+        $this->file->save();
     }
 
     public function download_file()
