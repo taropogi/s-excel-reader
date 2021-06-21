@@ -16,6 +16,8 @@ class CreateUploadsTable extends Migration
     {
         Schema::create('uploads', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('upload_by');
+            $table->unsignedBigInteger('import_by')->nullable();
             $table->string('file_name')->unique();
             $table->string('orig_file_name')->nullable();
             $table->string('file_type')->nullable();
@@ -32,6 +34,9 @@ class CreateUploadsTable extends Migration
             $table->timestamp('import_start')->nullable();
             $table->timestamp('import_end')->nullable();
             $table->timestamps();
+
+            $table->foreign('upload_by')->references('id')->on('users');
+            $table->foreign('import_by')->references('id')->on('users');
         });
 
         DB::statement("ALTER TABLE uploads ADD blob_file MEDIUMBLOB");

@@ -50,7 +50,8 @@ class UploadFile extends Component
             'date_modified' => $mdate,
             'size' => $size,
             'mime_type' => $mimetype,
-            'full_storage_path' => 'app/' . $path
+            'full_storage_path' => 'app/' . $path,
+            'upload_by' => auth()->user()->id,
 
         ]);
 

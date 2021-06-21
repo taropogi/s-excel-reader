@@ -16,6 +16,18 @@ class Upload extends Model
         'date_modified' => 'datetime:Y-m-d',
     ];
 
+    public function upload_by_f()
+    {
+        return $this->belongsTo(User::class, 'upload_by', 'id');
+    }
+
+    public function import_by_f()
+    {
+        return $this->belongsTo(User::class, 'import_by', 'id');
+    }
+
+
+
     public function empty_cells()
     {
         return $this->hasMany(EmptyCellLog::class);

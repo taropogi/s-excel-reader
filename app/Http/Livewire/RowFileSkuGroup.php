@@ -32,8 +32,10 @@ class RowFileSkuGroup extends Component
         $this->file->import_start = $import_start;
         $this->file->import_end = $import_end;
         $this->file->record_count = count($upload_rows);
-
+        $this->file->import_by = auth()->user()->id;
         $this->file->save();
+
+        $this->emit('FileImported');
 
         /*
         $file_contents = base64_decode($document->blob_file);

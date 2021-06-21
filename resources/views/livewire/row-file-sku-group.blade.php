@@ -3,6 +3,12 @@
     <td>{{ $file->file_name }}</td>
     <td>{{ $file->created_at->diffForHumans() }}</td>
     <td>{{ $file->date_modified->diffForHumans() }}</td>
+    <td>{{ $file->upload_by_f->name }}</td>
+    <td>
+        @isset($file->import_by_f)
+        {{ $file->import_by_f->name }}
+        @endisset
+    </td>
     <td>{{ $file->size() }}</td>
     <td>{{ $file->import_duration() }}</td>
     <td>{{ $file->record_count }}</td>
