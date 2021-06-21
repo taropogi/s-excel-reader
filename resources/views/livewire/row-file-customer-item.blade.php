@@ -5,7 +5,7 @@
     <td>{{ $file->date_modified->diffForHumans() }}</td>
     <td>{{ $file->upload_by_f->name }}</td>
     <td>
-        {{ $import_by_str}}
+        {{ $import_by_str }}
     </td>
     <td>{{ $file->size() }}</td>
     <td>{{ $file->import_duration() }}</td>
