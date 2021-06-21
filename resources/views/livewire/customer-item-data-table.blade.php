@@ -29,6 +29,15 @@
 
     <table class="table table-sm small table-striped table-hover">
         <thead>
+            @if($selected_file == 0)
+            <tr>
+                <th colspan="5" class="table-primary text-center">Show all data</th>
+            </tr>
+            @elseif($selected_file > 0)
+            <tr>
+                <th colspan="5" class="table-danger text-center">{{ $selected_file_obj->file_name }}</th>
+            </tr>
+            @endif
             <tr>
                 <th scope="col">Commodity Code</th>
                 <th scope="col">Name</th>

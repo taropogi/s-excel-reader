@@ -14,6 +14,7 @@ class CustomerItemDataTable extends Component
     public $option_files;
     public $search;
     public $selected_file;
+    public $selected_file_obj;
 
 
     public function mount()
@@ -43,6 +44,7 @@ class CustomerItemDataTable extends Component
             ->orWhere('oracle_code', 'like', '%' . $this->search . '%');
 
         if (!$this->selected_file == 0) {
+            $this->selected_file_obj = Upload::find($this->selected_file);
             $data['items'] = $data['items']->where('upload_id', $this->selected_file);
         }
 
