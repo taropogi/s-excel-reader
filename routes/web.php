@@ -1,5 +1,8 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: Authorization, Content-Type');
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\CustomerSkuController;
