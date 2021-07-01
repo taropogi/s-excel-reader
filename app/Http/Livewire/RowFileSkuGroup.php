@@ -26,7 +26,6 @@ class RowFileSkuGroup extends Component
     public function import()
     {
 
-        dd('import dd');
         $document = $this->file;
 
 
