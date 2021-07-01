@@ -54,9 +54,9 @@ return [
     |
     */
 
-    //  'asset_url' => null,
+    //  'asset_url' => null, // if localhost
 
-    'asset_url' => (!in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1']) ? 'http://113.1.1.235/reader/public' : null),
+    'asset_url' => 'http://113.1.1.235/reader/public',
 
     /*
     |--------------------------------------------------------------------------
