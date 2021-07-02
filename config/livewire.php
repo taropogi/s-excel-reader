@@ -56,7 +56,7 @@ return [
 
     //  'asset_url' => null, // if localhost
 
-    'asset_url' => 'http://113.1.1.235/reader/public',
+    'asset_url' => 'http://113.1.1.154/reader/public',
 
     /*
     |--------------------------------------------------------------------------
