@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -56,7 +57,7 @@ return [
 
     //  'asset_url' => null, // if localhost
 
-    'asset_url' => 'http://113.1.1.154/reader/public',
+    'asset_url' => ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' ? null : 'http://' . $_SERVER['SERVER_ADDR'] . '/reader/public'),
 
     /*
     |--------------------------------------------------------------------------
