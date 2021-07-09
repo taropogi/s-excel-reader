@@ -24,6 +24,7 @@ class CreateCustomerItemsTable extends Migration
             $table->string('description')->nullable();
             $table->string('uom')->nullable();
             $table->string('oracle_code')->nullable();
+            $table->string('rank')->nullable();
             $table->timestamps();
         });
     }

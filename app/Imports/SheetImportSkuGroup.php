@@ -10,8 +10,9 @@ use Maatwebsite\Excel\Events\BeforeSheet;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 
-class SheetImportSkuGroup implements ToCollection, WithEvents
+class SheetImportSkuGroup implements ToCollection, WithEvents, WithCalculatedFormulas
 {
     /**
      * @param Collection $collection

@@ -9,8 +9,9 @@ use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Events\BeforeSheet;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 
-class SheetImportCustomerItem implements ToCollection, WithEvents
+class SheetImportCustomerItem implements ToCollection, WithEvents, WithCalculatedFormulas
 {
     /**
      * @param Collection $collection
@@ -57,6 +58,10 @@ class SheetImportCustomerItem implements ToCollection, WithEvents
             $new_item->description = $obj_arr[1];
             $new_item->uom = $obj_arr[3];
             $new_item->oracle_code = $obj_arr[4];
+            // if (is_int($obj_arr[5])) {
+            $new_item->rank = $obj_arr[5];
+            //   }
+
 
 
 
@@ -80,6 +85,10 @@ class SheetImportCustomerItem implements ToCollection, WithEvents
                 if (is_null($obj_arr[4])) { //oracle code
                     $empty_cells++;
                     array_push($empty_cells_arr, 'E' . $line_ctr);
+                }
+                if (is_null($obj_arr[5])) { //rank
+                    $empty_cells++;
+                    array_push($empty_cells_arr, 'F' . $line_ctr);
                 }
             } else {
 
