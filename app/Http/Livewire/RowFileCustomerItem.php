@@ -71,6 +71,13 @@ class RowFileCustomerItem extends Component
     {
         sleep(3);
         $this->file->delete();
+
+        DB::connection('tdw1')->table('fed_table_logs')->insert([
+            'app' => 'Excel Reader',
+            'str' => 'Delete File Items'
+        ]);
+
+
         $this->emit('FileDeleted');
     }
 
