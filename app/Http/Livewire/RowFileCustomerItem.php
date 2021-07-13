@@ -6,6 +6,7 @@ use Livewire\Component;
 
 use App\Models\CustomerItem;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use App\Imports\CustomerItemImport;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -47,6 +48,12 @@ class RowFileCustomerItem extends Component
 
 
         $this->file->save();
+
+
+        DB::connection('tdw1')->table('fed_table_logs')->insert([
+            'app' => 'Excel Reader',
+            'str' => 'Import Items'
+        ]);
     }
 
     public function download_file()
