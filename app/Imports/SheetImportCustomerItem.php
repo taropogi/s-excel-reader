@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Models\Log;
+use Illuminate\Support\Str;
 use App\Models\CustomerItem;
 use App\Models\EmptyCellLog;
 use Illuminate\Support\Collection;
@@ -29,6 +30,8 @@ class SheetImportCustomerItem implements ToCollection, WithEvents, WithCalculate
     public function collection(Collection $rows)
     {
 
+
+
         //delete existing  
 
         CustomerItem::where('upload_id', $this->document->id)
@@ -39,6 +42,9 @@ class SheetImportCustomerItem implements ToCollection, WithEvents, WithCalculate
             ->where('sheet_name', $this->sheetName)
             ->delete();
 
+        if (!Str::contains($this->sheetName, 'Xref')) {
+            return;
+        }
 
         $line_ctr = 1;
         $record_error_count = 0;
