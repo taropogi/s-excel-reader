@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
         $user3 = new User;
 
         $user3->name = "Rena";
-        $user3->email = "Rena@reader.com";
+        $user3->email = "rena@reader.com";
         $user3->password = Hash::make('rena_1234');
         $user3->save();
 
