@@ -55,7 +55,7 @@ return [
     |
     */
 
-    // 'asset_url' => null, // if localhost
+    //'asset_url' => null, // if localhost
 
     'asset_url' => ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' ? null : 'http://' . $_SERVER['SERVER_ADDR'] . '/reader/public'),
 

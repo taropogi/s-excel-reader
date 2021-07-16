@@ -52,7 +52,9 @@ class RowFileCustomerItem extends Component
 
         DB::connection('tdw1')->table('fed_table_logs')->insert([
             'app' => 'Excel Reader',
-            'str' => 'Import Items'
+            'str' => 'Import Items',
+            'created_at' => Carbon::now(),
+            'user' => auth()->user()->name
         ]);
     }
 
@@ -74,7 +76,9 @@ class RowFileCustomerItem extends Component
 
         DB::connection('tdw1')->table('fed_table_logs')->insert([
             'app' => 'Excel Reader',
-            'str' => 'Delete File Items'
+            'str' => 'Delete File Items',
+            'created_at' => Carbon::now(),
+            'user' => auth()->user()->name
         ]);
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Carbon;
 use App\Models\CustomerSkuGroup;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\CustomerSkuGroupImport;
 
@@ -48,6 +49,13 @@ class RowFileSkuGroup extends Component
 
         $this->file->save();
 
+        DB::connection('tdw1')->table('fed_table_logs')->insert([
+            'app' => 'Excel Reader',
+            'str' => 'Import Customer',
+            'created_at' => Carbon::now(),
+            'user' => auth()->user()->name
+        ]);
+
 
 
         /*
@@ -80,6 +88,15 @@ class RowFileSkuGroup extends Component
     {
         sleep(3);
         $this->file->delete();
+
+        DB::connection('tdw1')->table('fed_table_logs')->insert([
+            'app' => 'Excel Reader',
+            'str' => 'Delete File Customer',
+            'created_at' => Carbon::now(),
+            'user' => auth()->user()->name
+        ]);
+
+
         $this->emit('FileDeleted');
     }
 
